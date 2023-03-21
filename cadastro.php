@@ -1,5 +1,6 @@
 <?php
 include_once 'inicio.html';
+include_once 'php_action/conexaobd.php';
 ?>
 
 <div> 

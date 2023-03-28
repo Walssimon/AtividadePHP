@@ -26,16 +26,16 @@
         return $this -> saldo;
     }
 
-    function __construct( $agencia, $codigo, $dataDeInscricao, $titular, $senha, $saldo, $cancelada)
+    function __construct($agencia, $codigo, $dataDeInscricao, $titular, $senha, $saldo,$cancelada)
     {
-        $this -> agencia = $agencia;
-        $this -> codigo = $codigo;
-        $this -> dataDeInscricao= $dataDeInscricao;
+        $this ->agencia = $agencia;
+        $this ->codigo = $codigo;
+        $this ->dataDeInscricao= $dataDeInscricao;
         $this ->titular = $titular;
         $this ->senha = $senha;
         $this ->saldo = $saldo;
         $this ->cancelada = $cancelada;
-        
+                
         $this ->depositar ($saldo);
         $this ->cancelada = false; 
     }

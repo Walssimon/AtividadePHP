@@ -1,37 +1,29 @@
 <?php
-include_once 'Pessoa.php';
-include_once 'Conta.php';
+    include_once 'Pessoa.php';
+    include_once 'Conta.php';
+    
+    $carlos= new Pessoa(10,"Carlos da Silva" , 1.85, 25, '10/04/1976', "Ensino Médio", 2000);
 
-$carlos= new Pessoa;
-$carlos->codigo = 10;
-$carlos->nome = "Carlos da Silva";
-$carlos->altura = 1.85;
-$carlos->idade = 25;
-$carlos->nascimento = '10/04/1976';
-$carlos->escolaridade = "Ensino Médio";
+    echo "Matriculando o objeto {$carlos ->nome} : <br>";
+    echo "{$carlos->nome} é formado em: {$carlos -> escolaridade} <br>";
 
 
-echo "Matriculando o objeto $carlos ->Nome : <br>";
-echo "{$carlos->nome} é formado em: {$carlos -> escolaridade} <br>";
-echo "{$carlos->nome} possui {$carlos -> idade} <br>";
+    $carlos ->formar('Técnico em Eletricidade');
+    echo "{$carlos->nome} é formado em: {$carlos -> escolaridade} <br>";
+    echo "{$carlos->nome} possui {$carlos -> idade} <br>";
 
-$carlos->envelhecer(1);
+    $carlos->envelhecer(1);
+    echo "{$carlos->nome} possui {$carlos->idade} anos <br>";
 
-echo "{$carlos->nome} possui {$carlos->idade} anos <br>";
-$Conta_carlos = new Conta;
-$Conta_carlos -> agencia = 6677;
-$Conta_carlos -> codigo = "CC.12 35. 56";
-$Conta_carlos -> dataDeInscricao = "10/07/02";
-$Conta_carlos -> titular = $carlos;
-$Conta_carlos -> senha = 9876;
-$Conta_carlos -> saldo = 567.89;
-$Conta_carlos -> cancelada = false;
-echo"<br>";
-echo"Manipoulando a conta de: {$conta_carlos->Titular->Nome}<br>";
+    $conta_carlos = new Conta(6677, "CC.12 35. 56", "10/07/02", $carlos, 9876, 567.89, false);
 
-echo"O saldo atual é R\$ {$conta_carlos->obterSaldo()}<br>";
-$conta_carlos->Depositar(20);
-echo"O saldo atual é R\$ {$conta_carlos->obterSaldo()}<br>";
-$conta_carlos->Retirar(10);
-echo"O saldo atual é R\$ {$conta_carlos->obterSaldo()}<br>";
+    echo"<br>";
+    echo"Manipoulando a conta de: {$conta_carlos-> titular -> nome}<br>";
+
+    echo"O saldo atual é R\$ {$conta_carlos->obterSaldo()}<br>";
+    $conta_carlos->Depositar(20);
+    echo"O saldo atual é R\$ {$conta_carlos->obterSaldo()}<br>";
+    $conta_carlos->Retirar(10);
+    echo"O saldo atual é R\$ {$conta_carlos->obterSaldo()}<br>";
+
 ?>
